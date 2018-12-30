@@ -11,3 +11,4 @@ npx jest --watchAll
 1. *findingMissingIndices.spec.js* - Given a complete and incomplete array, find the missing values
 2. *findingDuplicateIndices.spec.js* - Find the duplicate number on a given integer array
 3. *findLargestSmallest.spec.js* - Find the largest and smallest number in an unsorted integer array
+4. *sumOfParts.spec.js* - Find all pairs of an integer array whose sum is equal to a given number
