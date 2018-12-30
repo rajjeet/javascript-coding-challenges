@@ -1,5 +1,5 @@
 // Given a complete and incomplete array, find the missing values
-function findMissingIndex(completeArray, arrayWithMissingIndex){
+function findMissingIndices(completeArray, arrayWithMissingIndex){
 
     let result = [];
     for (let i = 0; i < completeArray.length; i++) {
@@ -16,12 +16,12 @@ function findMissingIndex(completeArray, arrayWithMissingIndex){
     return result;
 }
 
-describe('findMissingIndex', () => {
+describe('findMissingIndices', () => {
     it('finds correct result with 1 missing index', () => {
         const completeArray = [1, 2, 3, 4];
         const arrayWithMissingIndex = [1, 2, 4];
         const expected = [3];
-        let result = findMissingIndex(completeArray, arrayWithMissingIndex);
+        let result = findMissingIndices(completeArray, arrayWithMissingIndex);
 
         expect(result).toEqual(expected);
     });
@@ -30,7 +30,7 @@ describe('findMissingIndex', () => {
         const completeArray = [1, 2, 3, 4];
         const arrayWithMissingIndex = [1, 2];
         const expected = [3, 4];
-        let result = findMissingIndex(completeArray, arrayWithMissingIndex);
+        let result = findMissingIndices(completeArray, arrayWithMissingIndex);
 
         expect(result).toEqual(expected);
     });
@@ -39,7 +39,7 @@ describe('findMissingIndex', () => {
         const completeArray = [1, 2, 3, 4];
         const arrayWithMissingIndex = [1, 2, 3, 4];
         const expected = [];
-        let result = findMissingIndex(completeArray, arrayWithMissingIndex);
+        let result = findMissingIndices(completeArray, arrayWithMissingIndex);
 
         expect(result).toEqual(expected);
     });
@@ -48,7 +48,7 @@ describe('findMissingIndex', () => {
         const completeArray = [1, 2, 'a', 4];
         const arrayWithMissingIndex = [1, 2, 4];
         const expected = ['a'];
-        let result = findMissingIndex(completeArray, arrayWithMissingIndex);
+        let result = findMissingIndices(completeArray, arrayWithMissingIndex);
 
         expect(result).toEqual(expected);
     });
@@ -57,7 +57,7 @@ describe('findMissingIndex', () => {
         const completeArray = [];
         const arrayWithMissingIndex = [];
         const expected = [];
-        let result = findMissingIndex(completeArray, arrayWithMissingIndex);
+        let result = findMissingIndices(completeArray, arrayWithMissingIndex);
 
         expect(result).toEqual(expected);
     });
