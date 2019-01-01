@@ -17,3 +17,5 @@ npx jest --watchAll
 6. *quickSort.spec.js* - Integer array sorted in place using the quicksort algorithm (Assuming correct input)
 7. *removeDuplicatesInPlace.spec.js* - Remove duplicates from an array in place
 8. *reverseArray.spec.js* - Reverse an array in place
+##### Linked List
+1. *findMiddle.spec.js* - Find the middle element of a singly linked list in one pass
