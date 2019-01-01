@@ -30,7 +30,6 @@ export class SinglyLinkedList {
         return result;
     }
 
-
     findFirst(value) {
         let node = this.head;
         while (node.value !== value) {
@@ -67,6 +66,18 @@ export class SinglyLinkedList {
             this.head = nextNode;
         }
         return node;
+    }
+
+    toCyclic() {
+        let node = this.head;
+        while (node.next !== null) {
+            if (node.next === this.head) {
+                return;
+            } else {
+                node = node.next;
+            }
+        }
+        node.next = this.head;
     }
 }
 
@@ -208,7 +219,31 @@ describe('SinglyLinkedList class', () => {
         });
 
 
-    })
+    });
+
+    describe('convertToCyclic method', () => {
+        let linkedList;
+        beforeEach(() => {
+            linkedList = new SinglyLinkedList(10);
+            linkedList.addToHead(20);
+            linkedList.addToHead(30);
+        });
+
+        it('converts 3 node singly linked list to cyclic form', () => {
+            linkedList.toCyclic();
+
+            expect(linkedList.head.value).toEqual(30);
+            expect(linkedList.head.next.next.next).toEqual(linkedList.head);
+        });
+
+        it('finishes running if linkedlist is already cyclic', () => {
+            linkedList.toCyclic();
+            linkedList.toCyclic();
+
+            expect(linkedList.head.value).toEqual(30);
+            expect(linkedList.head.next.next.next).toEqual(linkedList.head);
+        });
+    });
 
 })
 ;

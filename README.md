@@ -19,3 +19,4 @@ npx jest --watchAll
 8. *reverseArray.spec.js* - Reverse an array in place
 ##### Linked List
 1. *findMiddle.spec.js* - Find the middle element of a singly linked list in one pass
+2. *checkForCycle.spec.js* -  Check if a given linked list contains a cycle
