@@ -1,19 +1,13 @@
 // Remove duplicates from an array in place
 function removeDuplicates(array) {
-    // iterate through the array
     for (let i = 0; i < array.length; i++) {
-        // compare current element with all other elements
         for (let j = 0; j < array.length; j++) {
-            // if a match is found, nullify the element
             if (i !== j && array[i] === array[j]) {
                 array[i] = null;
             }
         }
     }
-    // remove all null elements
     return array.filter(k => k !== null);
-
-
 }
 
 describe('removeDuplicates', () => {

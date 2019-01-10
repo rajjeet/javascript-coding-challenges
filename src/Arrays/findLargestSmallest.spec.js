@@ -1,44 +1,80 @@
-//find the largest and smallest number in an unsorted integer array
-function findLargestSmallest(array) {
-    // create result object with largest and smallest property
-    let result;
-    if (array.length > 0) {
-        // First element must consist of string or number
-        if (!['string', 'number'].includes(typeof array[0])) {
-            throw 'Input array must consist of integers or strings'
-        }
-        result = {smallest: array[0], largest: array[0]};
-    } else {
-        result = {smallest: null, largest: null};
-        return result;
-    }
-    // iterate through array
+
+function validateArrayForNumbersAndStrings(array) {
     for (let i = 0; i < array.length; i++) {
-        // Elements must consist of string or number
         if (!['string', 'number'].includes(typeof array[i])) {
             throw 'Input array must consist of integers or strings'
         }
-        // if current element is smaller than smallest, replace smallest with current element
-        if (String(array[i]).charCodeAt(0) <= String(result.smallest).charCodeAt(0)) {
-            result.smallest = array[i];
-        }
-        // if current element is larger than largest, replace largest with current element
-        if (String(array[i]).charCodeAt(0) >= String(result.largest).charCodeAt(0)) {
-            result.largest = array[i];
-        }
     }
+}
 
+function initializeResults(array) {
+    if (array.length > 0) {
+        return {smallest: array[0], largest: array[0]};
+    } else {
+        return {smallest: null, largest: null};
+    }
+}
+
+function stringifyArray(array) {
+    let result = [];
+    for (let i = 0; i < array.length; i++) {
+        result.push(String(array[i]));
+    }
     return result;
 }
+
+//find the largest and smallest number in an unsorted integer array
+function findLargestSmallest(array) {
+
+    validateArrayForNumbersAndStrings(array);
+    const stringifiedArray = stringifyArray(array);
+    let result = initializeResults(stringifiedArray);
+    for (let i = 0; i < stringifiedArray.length; i++) {
+        if (stringifiedArray[i] <= result.smallest) {
+            result.smallest = stringifiedArray[i];
+        }
+        if (stringifiedArray[i] >= result.largest) {
+            result.largest = stringifiedArray[i];
+        }
+    }
+    return result;
+}
+
+describe('stringifyArray', () => {
+    it('returns a stringified version of an array', () => {
+        const array = [1, 2, 'a'];
+        const expected = ['1', '2', 'a'];
+
+        const result = stringifyArray(array);
+
+        expect(result).toEqual(expected);
+    });
+});
 
 describe('findLargestSmallest', () => {
     it('returns an object the largest and smallest element', () => {
         const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-        const expected = {smallest: 1, largest: 9};
+        const expected = {smallest: "1", largest: "9"};
 
         const result = findLargestSmallest(array);
 
         expect(result).toEqual(expected);
+    });
+
+    it('does not modify the input array', () => {
+        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        findLargestSmallest(array);
+
+        expect(array).toEqual(array);
+    });
+
+    it('does not mutate the input array', () => {
+        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        findLargestSmallest(array);
+
+        expect(array).toEqual(array);
     });
 
     it('returns an object the largest and smallest element, given an array with mixed data types', () => {

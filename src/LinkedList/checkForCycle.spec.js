@@ -2,7 +2,6 @@
 import {SinglyLinkedList} from "./SinglyLinkedList.spec";
 
 function checkForCycle(linkedList) {
-    // record first node
     const headNode = linkedList.head;
     let currentNode;
 
@@ -12,16 +11,13 @@ function checkForCycle(linkedList) {
         return false;
     }
 
-    // iterate through linkedList
     while (currentNode.next !== null) {
-        // if any of the nodes under iterations equals to the first node, return true
         if (currentNode.next === headNode) {
             return true;
         } else {
             currentNode = currentNode.next;
         }
     }
-    // if the linked list end, return false
     return false;
 }
 

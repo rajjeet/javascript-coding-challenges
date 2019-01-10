@@ -26,6 +26,16 @@ describe('findMissingIndices', () => {
         expect(result).toEqual(expected);
     });
 
+    it('does not modify the input arrays', () => {
+        const completeArray = [1, 2, 3, 4];
+        const arrayWithMissingIndex = [1, 2, 4];
+
+        findMissingIndices(completeArray, arrayWithMissingIndex);
+
+        expect(completeArray).toEqual(completeArray);
+        expect(arrayWithMissingIndex).toEqual(arrayWithMissingIndex);
+    });
+
     it('finds correct result with 2 missing index', () => {
         const completeArray = [1, 2, 3, 4];
         const arrayWithMissingIndex = [1, 2];

@@ -1,7 +1,5 @@
 // Reverse an array in place
 function reverseArray(array) {
-
-    // iterate through array
     for (let i = 0; i < Math.floor(array.length / 2); i++) {
         // replace n element with array length - n in place without temp variable
         // X = X - Y

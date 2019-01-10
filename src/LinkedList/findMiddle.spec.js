@@ -2,21 +2,17 @@
 import {SinglyLinkedList} from "./SinglyLinkedList.spec";
 
 function findMiddle(linkedList) {
-    // iterate through the linked list
     let node = linkedList.head;
-    // keep track of middle node on each iteration
     let middleNode = node;
     let iteration = 0;
 
     while(node.next !== null){
-        // increment middleNode on each other iteration
         if (iteration % 2 === 0){
             middleNode = middleNode.next;
         }
         node = node.next;
         iteration++;
     }
-    // return middle node once linked list ends and only if linked list has odd number of nodes
     return iteration % 2 === 0 ? middleNode : null;
 }
 

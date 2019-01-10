@@ -1,28 +1,26 @@
+function validateArrayForNumbers(array){
+    array.forEach(element => {
+        if (typeof element !== 'number') {
+            throw ('Arrays must consist of only numbers');
+        }
+    });
+}
 // Find all pairs of an integer array whose sum is equal to a given number
 function sumOfParts(array, number) {
-    // initialize a result array that is an array of array
     let result = [];
-    // iterator through array
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array.length; j++) {
-            // throw error if array has any elements that are NaN
-            if (typeof array[i] !== 'number' || typeof array[j] !== 'number') {
-                throw ('Arrays must consist of only numbers');
-            }
-            const element = [array[i], array[j]].sort();
-            // add the selected element with the rest of the elements
-            // and compare if their sum equal to the input number
+    validateArrayForNumbers(array);
+    for (let outerIndex = 0; outerIndex < array.length; outerIndex++) {
+        for (let innerIndex = 0; innerIndex < array.length; innerIndex++) {
+            const element = [array[outerIndex], array[innerIndex]].sort();
             if (
-                i !== j
-                && array[i] + array[j] === number
+                outerIndex !== innerIndex
+                && array[outerIndex] + array[innerIndex] === number
                 && !result.some(e => e[0] === element[0] && e[1] === element[1])
             ) {
-                // if match, the pair is pushed to a result array
                 result.push(element);
             }
         }
     }
-    // return result
     return result.sort((a, b) => a[0] - b[0]);
 }
 

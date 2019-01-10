@@ -1,20 +1,14 @@
 // Find the duplicate number on a given integer array
 function findDuplicateIndices(array) {
-    // create array to hold distinct values
     let distinct = [];
-    // create array to hold duplicate values
     let duplicates = [];
-    // iterate through input array
     for (let i = 0; i < array.length; i++) {
         if (distinct.includes(array[i])) {
-            // if value is "distinct" array, add to "duplicate" array
             duplicates.push(array[i]);
         } else {
-            // if value is not in "distinct" array, add to "distinct" array
             distinct.push(array[i]);
         }
     }
-    // return duplicate array
     return duplicates.sort();
 }
 
@@ -26,6 +20,14 @@ describe('findDuplicateIndices', () => {
         const duplicates = findDuplicateIndices(array);
 
         expect(duplicates).toEqual(expected);
+    });
+
+    it('doesn\'t mutate the input array', () => {
+        const array = [1, 2, 3, 4, 4, 5];
+
+        findDuplicateIndices(array);
+
+        expect(array).toEqual(array);
     });
 
     it('finds 2 correct duplicate pairs in array', () => {
