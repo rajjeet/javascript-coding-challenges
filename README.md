@@ -20,3 +20,6 @@ npx jest --watchAll
 ##### Linked List
 1. *findMiddle.spec.js* - Find the middle element of a singly linked list in one pass
 2. *checkForCycle.spec.js* -  Check if a given linked list contains a cycle
+3. *reverseLinkedList.spec.js* - Reverse a singly linked list without recursion
+4. *removeDuplicateNodes.spec.js* - Remove duplicate nodes in an unsorted linked list
+5. *findNthNodeFromEnd.spec.js* - Find Nth Node from the end of a singly linked list
