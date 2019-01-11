@@ -9,7 +9,7 @@ export class SinglyLinkedList {
     addToHead(value) {
         this.head = {
             value: value,
-            next: this.head
+            next: this.head.value || this.head.next ? this.head : null
         };
     }
 
@@ -108,6 +108,16 @@ describe('SinglyLinkedList class', () => {
             expect(linkedList.head.value).toEqual(10);
             expect(result).toEqual(20);
         });
+
+        it('replaces the head node if the value and next properties are null', () => {
+            const linkedList = new SinglyLinkedList();
+
+            linkedList.addToHead(20);
+
+            expect(linkedList.head.value).toEqual(20);
+
+        });
+
     });
 
     describe('popFromHead method', () => {

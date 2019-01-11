@@ -23,3 +23,4 @@ npx jest --watchAll
 3. *reverseLinkedList.spec.js* - Reverse a singly linked list without recursion
 4. *removeDuplicateNodes.spec.js* - Remove duplicate nodes in an unsorted linked list
 5. *findNthNodeFromEnd.spec.js* - Find Nth Node from the end of a singly linked list
+6. *addTwoNumbers.spec.js* - Add two numbers represented by linked lists
